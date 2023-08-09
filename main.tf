@@ -78,31 +78,31 @@ resource "aws_route_table_association" "test22" {
   subnet_id = aws_subnet.mysecondSUBNET2.id
   route_table_id = aws_route_table.route-table-terra.id
 }
-resource "aws_instance" "my-ec2-terraform" {
-  ami                         = "ami-02d1e544b84bf7502"
-  instance_type               = "t2.micro"
-  associate_public_ip_address = true
-  monitoring                  = true
-  subnet_id                   = aws_subnet.mysecondSUBNET1.id
-  availability_zone           = "us-east-2a"
-  disable_api_termination     = true
-     vpc_security_group_ids = [aws_security_group.mysecgp.id]
-  key_name                   = "ookey"
-  user_data =  <<EOF
+#resource "aws_instance" "my-ec2-terraform" {
+#  ami                         = "ami-02d1e544b84bf7502"
+#  instance_type               = "t2.micro"
+#  associate_public_ip_address = true
+#  monitoring                  = true
+#  subnet_id                   = aws_subnet.mysecondSUBNET1.id
+##  availability_zone           = "us-east-2a"
+#  disable_api_termination     = true
+#     vpc_security_group_ids = [aws_security_group.mysecgp.id]
+##  key_name                   = "ookey"
+#  user_data =  <<EOF
 #!/bin/bash
-yum update -y
-yum install httpd -y
-service httpd start
-chkconfig httpd on
-cd /var/www/html
-echo 'Hello mathi, Welcome To My ec2-insatnce-1' > index.html
-aws s3 mb s3://johnny-aws-guru-s3-bootstrap-01
-aws s3 cp index.html s3://johnny-aws-guru-s3-bootstrap-01
-EOF
-  tags                        = {
-    name = "terra-ce2"
-  }
-}
+#yum update -y
+#yum install httpd -y
+#service httpd start
+#chkconfig httpd on
+#cd /var/www/html
+#echo 'Hello mathi, Welcome To My ec2-insatnce-1' > index.html
+#aws s3 mb s3://johnny-aws-guru-s3-bootstrap-01
+#aws s3 cp index.html s3://johnny-aws-guru-s3-bootstrap-01
+#EOF
+#  tags                        = {
+#    name = "terra-ce2"
+#  }
+#}
 #resource "aws_instance" "my-c2-multipe" {
   #ami = "ami-02d1e544b84bf7502"
   #associate_public_ip_address = true
@@ -127,35 +127,35 @@ EOF
    # name = "tera-c2-multi"
 #  }
 #}
-resource "aws_iam_user" "sky" {
-  name = "sky"
-
-}
-resource "aws_iam_user" "moon" {
-  name = "moon-guy"
-}
-resource "aws_iam_group" "admin-group" {
-  name = "admin-group"
-}
-resource "aws_iam_user_group_membership" "group-add" {
-  user = aws_iam_user.sky.name
-  groups = [
-    aws_iam_group.admin-group.name
-  ]
-}
-resource "aws_iam_group_policy" "systemAdmin" {
-  group  = aws_iam_group.admin-group.name
-  policy = jsonencode( {
-    "Version": "2012-10-17",
-    "Statement": [
-      {
-        "Effect": "Allow",
-        "Action": "*",
-        "Resource": "*"
-      }
-    ]
-  })
-}
+#resource "aws_iam_user" "sky" {
+#  name = "sky"
+#
+#}
+#resource "aws_iam_user" "moon" {
+#  name = "moon-guy"
+#}
+#resource "aws_iam_group" "admin-group" {
+#  name = "admin-group"
+#}
+#resource "aws_iam_user_group_membership" "group-add" {
+#  user = aws_iam_user.sky.name
+#  groups = [
+#    aws_iam_group.admin-group.name
+#  ]
+#}
+#resource "aws_iam_group_policy" "systemAdmin" {
+#  group  = aws_iam_group.admin-group.name
+#  policy = jsonencode( {
+#    "Version": "2012-10-17",
+#    "Statement": [
+#      {
+#        "Effect": "Allow",
+#        "Action": "*",
+#        "Resource": "*"
+#      }
+#    ]
+#  })
+#}
 #resource "aws_alb" "myfirst-alb" {
   #load_balancer_type = "application"
   #internal           = false
