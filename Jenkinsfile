@@ -16,12 +16,12 @@ pipeline {
 
         stage('plan') {
             steps {
-                bat 'terraform plan'
+                bat 'terraform plan -out=tfplan'
             }
         }
         stage('Terraform apply or destroy ') {
             steps {
-                bat 'terraform ${action} --auto-approve'
+                bat 'terraform ${action} tfplan --auto-approve'
             }
         }
 
