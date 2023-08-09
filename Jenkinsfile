@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { label 'windows_clients' }
 
     stages {
         stage('GIT Checkout') {
