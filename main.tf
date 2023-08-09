@@ -62,7 +62,7 @@ resource "aws_internet_gateway" "Terra-new-IGW" {
     Name = "Terra-new-IGW1"
   }
 }
-resource "aws_route_table" "route-table-terra1" {
+resource "aws_route_table" "route-table-terra" {
   vpc_id = aws_vpc.firstVPC.id
   route {
     cidr_block = "0.0.0.0/0"
