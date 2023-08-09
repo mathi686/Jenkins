@@ -2,29 +2,19 @@ pipeline {
     agent any
 
     stages {
-        stage('GIT') {
+        stage('GIT Checkout') {
             steps {
                 git branch: 'main', url: 'https://github.com/mathi686/Jenkins.git'
             }
         }
-        stages {
-        stage('init') {
+
+        stage('Terraform Init') {
             steps {
                 bat 'terraform init'
             }
         }
-//         stages {
-//         stage('GIT') {
-//             steps {
-//                 git branch: 'main', url: 'https://github.com/mathi686/Jenkins.git'
-//             }
-//         }
-//         stages {
-//         stage('GIT') {
-//             steps {
-//                 git branch: 'main', url: 'https://github.com/mathi686/Jenkins.git'
-//             }
-//         }
+
+        // Add more stages here if needed
+
     }
-}
 }
