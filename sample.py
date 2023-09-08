@@ -1,4 +1,3 @@
-a=int(input("Enter the a vlaue"))
-b=int(input("Enter the B value"))
-?print(a+b)
-print (the anser is (a+b))
+a = int(input("Value of A: "))
+b = int(input("Value of B: "))
+print("The answer is:", a + b)

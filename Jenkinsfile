@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Terraform apply or destroy ') {
             steps {
-                bat "terraform ${action} --auto-approve"
+                bat "terrafor ${action} --auto-approve"
             }
         }
 
