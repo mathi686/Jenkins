@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'windows_clients' }
+    agent { label 'kdk' }
 
     stages {
         stage('GIT Checkout') {
