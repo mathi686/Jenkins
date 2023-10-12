@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 data "aws_secretsmanager_secret" "my_secret" {
-  name = "newsec"  # Specify the name of your secret in AWS Secrets Manager
+  name = "my_secret_version"  # Specify the name of your secret in AWS Secrets Manager
 }
 
 data "aws_secretsmanager_secret_version" "my_secret_version" {
