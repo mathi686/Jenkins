@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'kdk' }
+    agent any
 
     stages {
         stage('GIT Checkout') {
